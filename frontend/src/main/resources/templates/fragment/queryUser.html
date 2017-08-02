@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+    		<div th:fragment="copy">
+    			<script type="text/javascript" th:src="@{/js/searchUser.js}"></script>
+    		
+				<form style="display:inline" action="/user/search" method="post">
+				   <div class="" style="padding-top: 25px;padding-bottom: 10px;">
+				       <label style="margin-left:220px ">UserName:</label>
+				       <input type="text" name="username" id="userName" class="input" placeholder="Enter keywords" th:value="${userInfoForm.username}" style="display:inline;width:130px;"/>
+				       <label style="margin-left:10px">Email:</label>
+				       <input type="text" name="email" id="email" class="input" placeholder="Enter keywords" th:value="${userInfoForm.email}" style="display:inline;width:130px;"/>
+				       <label style="margin-left:10px">CardNo:</label>
+				       <input type="text" name="cardno" id="cardNo" class="input" placeholder="Enter keywords" th:value="${userInfoForm.cardno}" style="display:inline;width:130px;"/>
+				       <label style="margin-left:10px">Type:</label>
+				       <select name="type" class="input" id="userType" style="display:inline;width:100px">
+				           <option id="userType0" th:selected="${userInfoForm.type eq 'customer'}" value="customer">Customer</option>
+				           <option id="userType1" th:selected="${userInfoForm.type eq 'admin'}" value="admin">Admin</option>
+				       </select>
+				   </div>
+				    <button type="submit" class="btn btn-sm" style="margin-left:370px ">Search</button>
+				</form>
+				<button type="button" class="btn btn-sm" style="margin-left:166px " onclick="javascript:window.location.href='/user/createUserPage';">Create</button>
+				<strong style="margin-left:715px ">Users</strong>
+				<table class="table table-hover" style="table-layout:fixed">  
+				<tr>
+				    <th width="40" style="text-align:center">NO</th>  
+				    <th width="80" style="text-align:center">CARDNO</th>  
+				    <th width="80" style="text-align:center">NAME</th>
+				    <th width="80" style="text-align:center">SEX</th>
+				    <th width="80" style="text-align:center">ADDRESS</th>
+				    <th width="80" style="text-align:center">POSTCODE</th>
+				    <th width="80" style="text-align:center">PHONE</th>
+				    <th width="90" style="text-align:center">EMAIL</th>
+				    <th width="80" style="text-align:center">TYPE</th>
+				    <th width="80" style="text-align:center">CREDITLEVEL</th>
+				    <th width="80" style="text-align:center">STATUS</th>
+				    <th width="80" style="text-align:center">OPERATION</th>
+				</tr>
+			    <tr th:each="user,userStat : ${userList}"> 
+			        <th th:text="${userStat.count}">NO</th> 
+				     <td style="text-align:center;white-space:nowrap;overflow:hidden"><span th:text="${user.cardno}"></span></td>
+				     <td style="text-align:center;white-space:nowrap;overflow:hidden"><span th:text="${user.name}"></span></td>
+				     <td style="text-align:center;white-space:nowrap;overflow:hidden"><span th:text="${user.sex}"></span></td>
+				     <td style="text-align:center;white-space:nowrap;overflow:hidden"><span th:text="${user.address}"></span></td>
+				     <td style="text-align:center;white-space:nowrap;overflow:hidden"><span th:text="${user.postcode}"></span></td>
+				     <td style="text-align:center;white-space:nowrap;overflow:hidden"><span th:text="${user.phone}"></span></td>
+				     <td style="text-align:center;white-space:nowrap;overflow:hidden"><span th:text="${user.email}"></span></td>
+				     <td style="text-align:center;white-space:nowrap;overflow:hidden">
+				     <div th:switch="${user.type}">
+			            <p th:case="'admin'">Admin</p>
+			            <p th:case="'customer'">Customer</p>
+			        </div>
+				     </td>
+				     <td style="text-align:center;white-space:nowrap;overflow:hidden"><span th:text="${user.creditlevel}"></span></td>
+				     <td style="text-align:center;white-space:nowrap;overflow:hidden"><span th:text="${user.status}"></span></td>
+				     <td style="text-align:center">  
+				     		<input type="hidden" th:value="${user.id}"/>
+			            <a class="editUserButton" style="cursor:pointer" >EDIT</a> 
+			            <a class="deleteUserSingle" style="cursor:pointer">DELETE</a>  
+			        </td>
+				  </tr>
+				</table>
+         </div>
+    </body>
+
+</html>

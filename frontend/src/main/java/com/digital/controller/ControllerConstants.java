@@ -6,6 +6,9 @@ package com.digital.controller;
  */
 public interface ControllerConstants
 {
+	/**
+	 *
+	 */
 	interface Navigations
 	{
 		String HOME = "home";
@@ -15,6 +18,9 @@ public interface ControllerConstants
 		String CONTACT = "contact";
 	}
 
+	/**
+	 *
+	 */
 	interface Views
 	{
 		interface Pages
@@ -48,7 +54,9 @@ public interface ControllerConstants
 
 			interface User
 			{
-				String TEMPLATE = "fragment/user";
+				String TEMPLATE_QUERY = "fragment/queryUser";
+				String TEMPLATE_CREATE = "fragment/createUser";
+				String TEMPLATE_UPDATE = "fragment/updateUser";
 				String FRAGMENT_COPY = "copy";
 			}
 

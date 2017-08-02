@@ -1,8 +1,6 @@
 package com.digital.service;
 
-import javax.servlet.http.HttpSession;
-
-import com.digital.data.UserData;
+import com.digital.domain.data.UserInfoData;
 
 
 /**
@@ -13,11 +11,9 @@ public interface SessionService
 {
 	String CURRENT_USER = "currentUser";
 
-	HttpSession getSession();
+	void saveUser(final UserInfoData user);
 
-	void saveUser(final UserData user);
-
-	UserData getCurrentUser();
+	UserInfoData getCurrentUser();
 
 	void cleanUserInformation();
 }

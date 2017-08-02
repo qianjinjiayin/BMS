@@ -6,11 +6,12 @@
    <meta name="viewport" content="width=device-width, initial-scale=1" />
    <title th:text="${title}"></title>
 
-	<link rel="stylesheet" th:href="@{bootstrap/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" />
 	
-	<link rel="stylesheet" th:href="@{css/index/style.css}" />
-	<link th:if="${pageName eq 'book'}" rel="stylesheet" th:href="@{css/book/style.css}" />
-	
+	<link rel="stylesheet" th:href="@{/css/index/style.css}" />
+	<link th:if="${pageName eq 'book'}" rel="stylesheet" th:href="@{/css/book/style.css}" />
+	<link th:if="${pageName eq 'user'}" rel="stylesheet" th:href="@{/css/user/userinfo.css}" />
+	<link th:if="${pageName eq 'user'}" rel="stylesheet" th:href="@{/css/user/style.css}" />
 
 	<script th:inline="javascript">
 		BMS = {};
@@ -21,10 +22,10 @@
 	</head>
 	<body>
 	<div id="fh5co-page">
-		<div th:include="${navTemplate} :: ${navFragment}"></div>
+		<div th:replace="${navTemplate} :: ${navFragment}"></div>
 
 		<div id="fh5co-main">
-			<div th:include="${mainTemplate} :: ${mainFragment}"></div>
+			<div th:replace="${mainTemplate} :: ${mainFragment}"></div>
 		</div>
 	</div>
 	

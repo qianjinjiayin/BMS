@@ -8,7 +8,6 @@ import java.util.Set;
 import javax.annotation.Resource;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,7 +15,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.UrlPathHelper;
 
-import com.digital.data.UserData;
+import com.digital.domain.data.UserInfoData;
 import com.digital.service.SessionService;
 
 
@@ -24,7 +23,7 @@ import com.digital.service.SessionService;
  * @author jiayin.wang
  * @date 2017-07-27
  */
-@WebFilter(filterName = "bmsFilter", urlPatterns = "/*")
+//@WebFilter(filterName = "bmsFilter", urlPatterns = "/*")
 public class BMSFilter extends OncePerRequestFilter
 {
 	private static final String[] STATIC_RESOURCE_SUFFIX =
@@ -44,7 +43,7 @@ public class BMSFilter extends OncePerRequestFilter
 		final String servletPath = urlPathHelper.getServletPath(request);
 		if (!isExclusivePath(servletPath) && !isStaticResources(servletPath))
 		{
-			final UserData user = sessionService.getCurrentUser();
+			final UserInfoData user = sessionService.getCurrentUser();
 			if (user == null)
 			{
 				response.sendRedirect("/");

@@ -7,9 +7,9 @@ server:
 
 zuul:
   routes:
-    api-a:
-      path: /api-a/**
-      serviceId: eureka-client
+    user-management:
+      path: /user-management/**
+      serviceId: user-management
 
 eureka:
   client:

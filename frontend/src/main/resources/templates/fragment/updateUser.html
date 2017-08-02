@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<nav th:fragment="copy">
+		<script type="text/javascript" th:src="@{/js/updateUser.js}"></script>
+		
+		<form id="userinfoForm" action="" method="post" class="basic-grey">
+			<h1>
+				User Information Form <span>Please change the information in the fields.</span>
+			</h1>
+			<input name="id" type="hidden" th:value="${userInfo.id}"/>
+			<label> 
+				<span>Card No. :</span> 
+				<input id="cardno" type="text" name="cardno" readonly="readonly" th:value="${userInfo.cardno}" />
+			</label> 
+			<label> 
+				<span>Credit Level :</span> 
+				<input id="creditlevel" type="text" name="creditlevel" readonly="readonly" th:value="${userInfo.creditlevel}" />
+			</label> 
+			<label> 
+				<span>Type :</span>
+				<select name="type">
+					<option value="admin" th:selected="${userInfo.type eq 'admin'}">Admin</option>
+					<option value="customer" th:selected="${userInfo.type eq 'customer'}">Customer</option>
+				</select>
+			</label> 
+			<label> 
+				<span>Name :</span> 
+				<input id="username" type="text" name="username" readonly="readonly" class="mandatory" placeholder="Your Full Name" th:value="${userInfo.name}"/>
+			</label> 
+			<label> 
+				<span>Email :</span> 
+				<input id="email" type="email" name="email" readonly="readonly" class="mandatory" placeholder="Valid Email Address" th:value="${userInfo.email}"/>
+			</label> 
+			<label> 
+				<span>Password :</span> 
+				<input id="password" type="text" name="password" readonly="readonly" class="mandatory" placeholder="Password" th:value="${userInfo.password}"/>
+			</label>
+			<label> 
+				<span>PostCode :</span> 
+				<input id="postcode" type="text" name="postcode" placeholder="Post Code" th:value="${userInfo.postcode}"/>
+			</label> 
+			<label> 
+				<span>Phone :</span> 
+				<input id="phone" type="text" name="phone" placeholder="Phone" th:value="${userInfo.phone}"/>
+			</label>
+			<label> 
+				<span>Gender :</span>
+				<select name="sex">
+					<option value="male" th:selected="${userInfo.sex eq 'male'}">Male</option>
+					<option value="female" th:selected="${userInfo.sex eq 'female'}">Female</option>
+				</select>
+			</label> 
+			<label> 
+				<span>Address :</span> 
+				<textarea id="address" name="address" placeholder="Address" th:text="${userInfo.address}"></textarea>
+			</label> 
+			<label> 
+				<input id="updateButton" type="button" class="button" value="Update" style="margin-left: 30%"/>
+				<input id="cancelButton" type="button" class="button" value="Back" onclick="javascript:window.location.href='/user/search';"/>
+				<input type="submit" class="hidden" />
+			</label>
+		</form>
+	</nav>
+</body>
+</html>

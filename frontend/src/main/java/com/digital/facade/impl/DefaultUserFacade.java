@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
 
-import com.digital.data.UserData;
+import com.digital.domain.data.UserInfoData;
 import com.digital.facade.UserFacade;
 import com.digital.service.SessionService;
 
@@ -23,7 +23,7 @@ public class DefaultUserFacade implements UserFacade
 	@Override
 	public boolean isUserLoggedIn()
 	{
-		final UserData user = sessionService.getCurrentUser();
+		final UserInfoData user = sessionService.getCurrentUser();
 		if (user == null)
 		{
 			return false;
@@ -32,7 +32,7 @@ public class DefaultUserFacade implements UserFacade
 	}
 
 	@Override
-	public void saveUserToSession(final UserData user)
+	public void saveUserToSession(final UserInfoData user)
 	{
 		sessionService.saveUser(user);
 	}

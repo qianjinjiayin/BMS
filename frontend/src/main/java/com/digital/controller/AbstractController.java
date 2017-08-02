@@ -12,6 +12,7 @@ public abstract class AbstractController
 	public static final String REDIRECT_PREFIX = "redirect:";
 	public static final String FORWARD_PREFIX = "forward:";
 	public static final String ROOT = "/";
+	public static final String INDEX_PAGE = "index";
 
 	protected void setupNavigation(final Model model, final String desNav)
 	{

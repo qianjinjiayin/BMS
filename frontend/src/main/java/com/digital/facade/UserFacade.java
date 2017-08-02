@@ -1,6 +1,6 @@
 package com.digital.facade;
 
-import com.digital.data.UserData;
+import com.digital.domain.data.UserInfoData;
 
 
 /**
@@ -12,7 +12,7 @@ public interface UserFacade
 
 	boolean isUserLoggedIn();
 
-	void saveUserToSession(UserData user);
+	void saveUserToSession(UserInfoData user);
 
 	void clearSession();
 

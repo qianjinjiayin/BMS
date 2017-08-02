@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<nav th:fragment="copy">
+		<script type="text/javascript" th:src="@{/js/createUser.js}"></script>
+		
+		<form id="userinfoForm" action="" method="post" class="basic-grey">
+			<h1>
+				User Information Form <span>Please fill all the texts in the fields.</span>
+			</h1>
+			<label> 
+				<span>Card No. :</span> 
+				<input id="cardno" type="text" name="cardno" placeholder="Card Number" disabled="disabled"/>
+			</label> 
+			<label> 
+				<span>Credit Level :</span> 
+				<input id="creditlevel" type="text" name="creditlevel" placeholder="Credit Level" disabled="disabled"/>
+			</label> 
+			<label> 
+				<span>Type :</span>
+				<select name="type">
+					<option value="admin">Admin</option>
+					<option value="customer">Customer</option>
+				</select>
+			</label> 
+			<label> 
+				<span>Name :</span> 
+				<input id="username" type="text" name="username" class="mandatory" placeholder="Your Full Name" />
+			</label> 
+			<label> 
+				<span>Email :</span> 
+				<input id="email" type="email" name="email" class="mandatory" placeholder="Valid Email Address" />
+			</label> 
+			<label> 
+				<span>Password :</span> 
+				<input id="password" type="text" name="password" class="mandatory" placeholder="Password" />
+			</label>
+			<label> 
+				<span>PostCode :</span> 
+				<input id="postcode" type="text" name="postcode" placeholder="Post Code" />
+			</label> 
+			<label> 
+				<span>Phone :</span> 
+				<input id="phone" type="text" name="phone" placeholder="Phone" />
+			</label>
+			<label> 
+				<span>Gender :</span>
+				<select name="sex">
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select>
+			</label> 
+			<label> 
+				<span>Address :</span> 
+				<textarea id="address" name="address" placeholder="Address"></textarea>
+			</label> 
+			<label> 
+				<input id="createButton" type="button" class="button" value="Create" style="margin-left: 30%"/>
+				<input id="cancelButton" type="button" class="button" value="Back" onclick="javascript:window.location.href='/user/search';"/>
+				<input type="submit" class="hidden" />
+			</label>
+		</form>
+	</nav>
+</body>
+</html>

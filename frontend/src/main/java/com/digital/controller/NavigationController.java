@@ -17,7 +17,6 @@ import com.digital.service.SessionService;
 @Controller
 public class NavigationController extends AbstractController
 {
-	private static final String INDEX_PAGE = "index";
 
 	@Resource(name = "defaultSessionService")
 	private SessionService sessionService;
@@ -39,6 +38,13 @@ public class NavigationController extends AbstractController
 	}
 
 
+	@RequestMapping(value = "/queryUser")
+	public String queryUser(final Model model)
+	{
+		return "queryUser";
+	}
+
+
 	/**
 	 * User Management
 	 *
@@ -50,7 +56,7 @@ public class NavigationController extends AbstractController
 	{
 		setupNavigation(model, ControllerConstants.Navigations.USER);
 		setupPageInfo(model, ControllerConstants.Views.Pages.Titles.USER, ControllerConstants.Views.Pages.Names.USER);
-		setupPageLayout(model, ControllerConstants.Views.Templates.User.TEMPLATE,
+		setupPageLayout(model, ControllerConstants.Views.Templates.User.TEMPLATE_QUERY,
 				ControllerConstants.Views.Templates.User.FRAGMENT_COPY);
 		return INDEX_PAGE;
 	}
